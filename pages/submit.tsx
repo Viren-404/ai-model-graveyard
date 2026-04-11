@@ -8,14 +8,11 @@ export default function Submit() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would send to Supabase or email
-    // For now, just show success
+  const handleSubmit = () => {
     setSubmitted(true);
   };
 
@@ -45,7 +42,7 @@ export default function Submit() {
               <div className="text-6xl mb-4">🪦</div>
               <h2 className="font-heading text-2xl text-grave-green mb-2">Death Reported</h2>
               <p className="font-body text-grave-gray">
-                Thank you. We'll verify and add it to the graveyard soon. R.I.P. 🕯️
+                Thank you. We&apos;ll verify and add it to the graveyard soon. R.I.P. 🕯️
               </p>
               <button
                 onClick={() => { setSubmitted(false); setForm({ name:"",company:"",born:"",died:"",category:"",causeOfDeath:"",ripQuote:"" }); }}
@@ -69,7 +66,7 @@ export default function Submit() {
                     <input
                       type="text"
                       name={field.name}
-                      value={form[field.name]}
+                      value={form[field.name as keyof typeof form]}
                       onChange={handleChange}
                       placeholder={field.placeholder}
                       className="w-full bg-grave-bg border border-grave-border rounded-xl px-4 py-3 font-body text-grave-white placeholder-grave-gray focus:outline-none focus:border-grave-green transition-colors"

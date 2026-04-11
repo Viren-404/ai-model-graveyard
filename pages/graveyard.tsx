@@ -102,7 +102,9 @@ export default function Graveyard() {
           ) : (
             <div className="text-center py-20">
               <p className="text-6xl mb-4">👻</p>
-              <p className="font-body text-grave-gray">No tools found. Maybe it's not dead yet...</p>
+              <p className="font-body text-grave-gray">
+  No tools found. Maybe it&apos;s not dead yet...
+</p>
             </div>
           )}
         </div>

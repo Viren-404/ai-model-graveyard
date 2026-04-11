@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import TombstoneCard from "../components/TombstoneCard";
 import { deadAITools } from "../data/deadAITools";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   const recentDeaths = deadAITools.slice(0, 6);
@@ -19,10 +20,7 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4 text-center relative overflow-hidden">
-          
-          {/* Background fog effect */}
-          <div className="absolute inset-0 bg-gradient-radial from-grave-green/5 via-transparent to-transparent pointer-events-none" />
-
+          <div className="absolute inset-0 pointer-events-none" />
           <div className="text-8xl mb-6 animate-float">🪦</div>
           
           <h1 className="font-heading text-5xl md:text-7xl text-grave-white mb-4 leading-tight">
@@ -39,12 +37,12 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <a href="/graveyard" className="bg-grave-green text-black font-body font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
+            <Link href="/graveyard" className="bg-grave-green text-black font-body font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
               Browse the Graveyard →
-            </a>
-            <a href="/submit" className="border border-grave-border text-grave-white font-body px-8 py-3 rounded-full hover:border-grave-green transition-colors">
+            </Link>
+            <Link href="/submit" className="border border-grave-border text-grave-white font-body px-8 py-3 rounded-full hover:border-grave-green transition-colors">
               Submit a Death
-            </a>
+            </Link>
           </div>
 
           {/* Stats Counter */}
@@ -76,16 +74,16 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-10">
-            <a href="/graveyard" className="font-body text-grave-green hover:underline text-sm">
+            <Link href="/graveyard" className="font-body text-grave-green hover:underline text-sm">
               View all {deadAITools.length} buried tools →
-            </a>
+            </Link>
           </div>
         </section>
 
         {/* Footer */}
         <footer className="border-t border-grave-border py-8 text-center font-body text-grave-gray text-sm">
           <p>🪦 AI Model Graveyard — Built with respect for the fallen.</p>
-          <p className="mt-1 text-xs">Know a dead AI tool? <a href="/submit" className="text-grave-green hover:underline">Submit it here</a></p>
+          <p className="mt-1 text-xs">Know a dead AI tool? <Link href="/submit" className="text-grave-green hover:underline">Submit it here</Link></p>
         </footer>
       </div>
     </>
